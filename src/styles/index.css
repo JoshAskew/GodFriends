@@ -1,0 +1,294 @@
+/* Reset all elements to have a clean slate */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+
+/* Remove default styles for block elements */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set body defaults */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeSpeed;
+    font-family: sans-serif;
+}
+
+/* Remove list styles */
+ul,
+ol {
+    list-style: none;
+}
+
+
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Prevent anchor elements from having default styles */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Remove table spacing */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Make sure elements use full width */
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+.nav-header {
+    display: flex;
+    padding: 20px;
+}
+
+.nav-container {
+    position: fixed;
+    top: 0px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: white;
+    border-bottom: 1px solid #D1E0E3;
+
+}
+
+.nav-title {
+    color: #7F4543;
+    font-family: "Noto Serif";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-left: 20px;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-link {
+    color: #6D6E70;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 20px;
+}
+
+.nav-link:hover {
+    cursor: pointer;
+}
+
+li {
+    list-style-type: none;
+}
+
+
+.explore-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+    margin-bottom: 110px;
+}
+
+.explore-img {
+    width: 656px;
+    height: 652px;
+    flex-shrink: 0;
+}
+
+.explore-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 35%;
+}
+
+.explore-header {
+    color: #585657;
+    font-family: "Noto Serif";
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 56px;
+    margin-bottom: 24px;
+}
+
+.explore-subheader {
+    color: #86918D;
+    font-family: Raleway;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    margin-bottom: 32px;
+}
+
+.explore-p {
+    color: #231F20;
+    font-family: "Source Sans 3";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 32px;
+}
+
+.embrace-container {
+    display: flex;
+    margin-left: 48px;
+    margin-right: 48px;
+    padding: 100px 8px;
+    flex-direction: column;
+    border-radius: 16px;
+    background: #FBFCFB;
+}
+
+.embrace-header {
+    color: #585657;
+    text-align: center;
+    font-family: "Noto Serif";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 56px;
+}
+
+.embrace-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-size: 1rem;
+}
+
+.embrace-p {
+    color: #231F20;
+    width: 80%;
+    font-family: "Source Sans 3";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 52px;
+}
+
+.embrace-list {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 11%;
+}
+
+.embrace-list-header {
+    color: #CADEDF;
+    font-family: "Noto Serif";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.embrace-list-subheader {
+    color: #585657;
+    font-family: Raleway;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    margin-bottom: 16px;
+}
+
+.embrace-list-p {
+    margin-bottom: 32px;
+}
+
+
+
+
+.buy-btn:hover {
+    cursor: pointer;
+}
+
+.buy-btn {
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 2px;
+    background: #DF513E;
+    color: #FFF;
+    font-family: Avenir;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 24px;
+    letter-spacing: 1.4px;
+}
+
+.buy-btn2 {
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 2px;
+    background: #DF513E;
+    color: #FFF;
+    font-family: Avenir;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 24px;
+    letter-spacing: 1.4px;
+}
+
+.buy-btn2:hover {
+    cursor: pointer;
+}

@@ -1,12 +1,15 @@
-
+import Navbar from "./components/Navbar"
+import Explore from "./components/Explore"
+import Embrace from "./components/Embrace"
 
 
 function App() {
 
   return (
     <>
-      <h1>React Typescript</h1>
-       
+    <Navbar />
+      <Explore />
+      <Embrace />
     </>
   )
 }

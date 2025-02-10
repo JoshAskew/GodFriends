@@ -15,7 +15,7 @@ const Navbar = () => {
           <ul className='nav-list'>
             <li>
               <span 
-                onClick={() => scrollToSection('about-book')} 
+                onClick={() => scrollToSection('About-Book')} 
                 className="nav-link"
               >
                 About The Book
@@ -23,7 +23,7 @@ const Navbar = () => {
             </li>
             <li>
               <span 
-                onClick={() => scrollToSection('meet-authors')} 
+                onClick={() => scrollToSection('Authors')} 
                 className="nav-link"
               >
                 Meet The Authors
@@ -31,7 +31,7 @@ const Navbar = () => {
             </li>
             <li>
               <span 
-                onClick={() => scrollToSection('reviews')} 
+                onClick={() => scrollToSection('Reviews')} 
                 className="nav-link"
               >
                 Reviews
@@ -39,7 +39,7 @@ const Navbar = () => {
             </li>
             <li>
               <span 
-                onClick={() => scrollToSection('connect')} 
+                onClick={() => scrollToSection('Connect')} 
                 className="nav-link"
               >
                 Connect

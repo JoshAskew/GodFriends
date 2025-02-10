@@ -4,6 +4,8 @@ import Embrace from "./components/Embrace"
 import Author from "./components/Authors"
 import Rating from "./components/Rating"
 import Final from "./components/FinalCTA"
+import ContactForm from "./components/ContactForm"
+import Footer from "./components/Footer"
 
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
       <Author />
       <Rating />
       <Final />
+      <ContactForm />
+      <Footer />
     </>
   )
 }

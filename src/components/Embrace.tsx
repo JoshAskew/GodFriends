@@ -3,7 +3,7 @@ import Flower from '../assets/flower-god-friends.png'
 const Embrace = () => {
     return (
         <>
-            <section className="embrace-container">
+            <section className="embrace-container" id='About-Book'>
                 <h1 className="embrace-header">Embrace The Journey</h1>
                 <div className="embrace-text">
                     <p className="embrace-p">Hello, dear reader! We’re thrilled to guide you through this explorative journey into the heart of spiritually enriched friendships. This book isn't just a read; it's an invitation to dive into the profound depths of what it means to have a God Friend—those rare, divine connections that transform and enrich your spiritual journey. Here’s a glimpse of what you’ll find:</p>

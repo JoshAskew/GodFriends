@@ -3,7 +3,7 @@ import Authors from '../assets/Author-god-friends.png'
 const Embrace = () => {
     return (
         <>
-            <section className="author-container">
+            <section className="author-container" id='Authors'>
                 <h1 className="author-header">Meet The Authors</h1>
                 <div className="author-list-container">
                     <img src={Authors} alt="Authors" className="author-pic" />

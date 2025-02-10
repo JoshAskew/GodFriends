@@ -2,7 +2,7 @@ import Star from '../assets/Stars.png';
 
 const Rating = () => {
     return (
-      <section className="rating-container">
+      <section className="rating-container" id='Reviews'>
         <div className="rating-one">
         <img src={Star} alt="Book Cover" className="star-img"/>
         <p className="rating-text">"An enlightening guide on spiritual friendships. Londa Lundstrom and Sandy Scipioni offer practical and profound insights. A must-read for deeper, more meaningful connections."</p>

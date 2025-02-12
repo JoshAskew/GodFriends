@@ -541,6 +541,8 @@ textarea:focus {
     align-items: flex-start;
     gap: 32px;
     align-self: stretch;
+    border-top: 1px solid #D1E0E3;
+    margin-top: 120px;
 }
 
 .footer-text {

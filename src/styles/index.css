@@ -152,6 +152,7 @@ li {
 
 .explore-header {
     color: #585657;
+    text-align: start;
     font-family: "Noto Serif";
     font-size: 45px;
     font-style: normal;

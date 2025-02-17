@@ -491,6 +491,10 @@ textarea {
     line-height: 24px;
 }
 
+textarea {
+    height: 200px;
+}
+
 input:focus,
 textarea:focus {
     border-radius: 4px;
@@ -918,7 +922,6 @@ textarea:focus {
         gap: 8px;
         width: 100%;
         margin: 0;
-
     }
 
     .form-container {

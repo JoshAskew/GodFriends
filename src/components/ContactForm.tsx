@@ -45,13 +45,33 @@ const ContactForm: React.FC = () => {
     return Object.keys(tempErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    if (!validate()) {
-      e.preventDefault(); // Prevent form submission if validation fails
-    } else {
-      setIsSubmitted(true);
-      setFormData({ fullName: "", email: "", message: "" });
-      setErrors({});
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validate()) {
+      try {
+        const response = await fetch("https://formsubmit.co/asksprit3@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            _subject: formData.fullName, // Full Name as Subject
+            email: formData.email, // Email as Sender
+            message: formData.message, // Message as Body
+          }),
+        });
+
+        if (response.ok) {
+          setIsSubmitted(true);
+          setFormData({ fullName: "", email: "", message: "" });
+          setErrors({});
+        } else {
+          alert("Failed to send message. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Something went wrong. Please try again.");
+      }
     }
   };
 
@@ -66,13 +86,7 @@ const ContactForm: React.FC = () => {
             <img src={successImage} alt="Success" className="success-image" />
           </div>
         ) : (
-          <form 
-            action="https://formsubmit.co/asksprit3@gmail.com" 
-            method="POST" 
-            target="_blank" 
-            onSubmit={handleSubmit}
-          >
-            {/* Hidden fields for FormSubmit */}
+          <form onSubmit={handleSubmit} noValidate>
             <input type="hidden" name="_captcha" value="false" /> 
             <input type="hidden" name="_template" value="table" /> 
 

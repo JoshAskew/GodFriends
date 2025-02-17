@@ -15,10 +15,10 @@ const ContactForm: React.FC = () => {
   });
 
   const [errors, setErrors] = useState<Partial<FormData>>({});
-  const [isSubmitted, setIsSubmitted] = useState(false); // New state for submission status
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    if (isSubmitted) setIsSubmitted(false); // Reset submission status when user starts typing
+    if (isSubmitted) setIsSubmitted(false);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -28,7 +28,7 @@ const ContactForm: React.FC = () => {
     if (!formData.fullName.trim()) {
       tempErrors.fullName = "Please enter your full name.";
     } else if (!/^\S+\s+\S+/.test(formData.fullName)) {
-      tempErrors.fullName = "Please enter a valid full name. Make sure to include both first and last names.";
+      tempErrors.fullName = "Please enter a valid full name (first and last name).";
     }
 
     if (!formData.email.trim()) {
@@ -38,19 +38,40 @@ const ContactForm: React.FC = () => {
     }
 
     if (!formData.message.trim()) {
-      tempErrors.message = "Please enter a message before sending.";
+      tempErrors.message = "Please enter a message.";
     }
 
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
-      setIsSubmitted(true); // Mark as submitted
-      setFormData({ fullName: "", email: "", message: "" }); // Reset form
-      setErrors({}); // Clear errors
+      try {
+        const response = await fetch("https://formsubmit.co/asksprit3@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            _subject: formData.fullName, // Full Name as Subject
+            email: formData.email, // Email as Sender
+            message: formData.message, // Message as Body
+          }),
+        });
+
+        if (response.ok) {
+          setIsSubmitted(true);
+          setFormData({ fullName: "", email: "", message: "" });
+          setErrors({});
+        } else {
+          alert("Failed to send message. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Something went wrong. Please try again.");
+      }
     }
   };
 
@@ -58,14 +79,17 @@ const ContactForm: React.FC = () => {
     <section className="get-in-touch-container" id="Connect">
       <h1 className="get-in-touch-header">Get in Touch</h1>
       <p className="get-in-touch-text">We'd love to hear from you and keep you updated with the latest!</p>
-      
+
       <div className="form-container">
-        {isSubmitted ? ( 
+        {isSubmitted ? (
           <div className="success-message">
             <img src={successImage} alt="Success" className="success-image" />
           </div>
         ) : (
           <form onSubmit={handleSubmit} noValidate>
+            <input type="hidden" name="_captcha" value="false" /> 
+            <input type="hidden" name="_template" value="table" /> 
+
             <div className="form-group">
               <label>Full Name</label>
               <input
@@ -75,6 +99,7 @@ const ContactForm: React.FC = () => {
                 value={formData.fullName}
                 onChange={handleChange}
                 className={errors.fullName ? "error-input" : ""}
+                required
               />
               {errors.fullName && <span className="error-message">{errors.fullName}</span>}
             </div>
@@ -88,6 +113,7 @@ const ContactForm: React.FC = () => {
                 value={formData.email}
                 onChange={handleChange}
                 className={errors.email ? "error-input" : ""}
+                required
               />
               {errors.email && <span className="error-message">{errors.email}</span>}
             </div>
@@ -100,10 +126,11 @@ const ContactForm: React.FC = () => {
                 value={formData.message}
                 onChange={handleChange}
                 className={`message-input ${errors.message ? "error-input" : ""}`.trim()}
+                required
               />
               {errors.message && <span className="error-message">{errors.message}</span>}
             </div>
-            
+
             <div className="button-container">
               <button className="message-btn" type="submit">SEND MESSAGE</button>
             </div>

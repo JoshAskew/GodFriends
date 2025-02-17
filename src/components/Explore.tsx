@@ -1,4 +1,4 @@
-import Book from '../assets/book-hero-image 1.png';
+import Book from '../assets/book-hero-image.png';
 
 const Explore = () => {
     return (

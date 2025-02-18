@@ -8,7 +8,7 @@ const Footer = () => {
             <h1 className="footer-header">God Friends</h1>
             <p className="footer-copyright">© 2025 God Friends. All Rights Reserved.</p>
             <div className="footer-socials">
-                <a href="https://www.facebook.com/YOUR_PAGE_HERE" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.facebook.com/profile.php?id=61565095079731" target="_blank" rel="noopener noreferrer">
                     <img src={Facebook} alt="Facebook" className="footer-social-icon" />
                 </a>
                 </div>

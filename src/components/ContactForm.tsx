@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import successImage from "../assets/success.png";
 
 interface FormData {
@@ -7,6 +7,13 @@ interface FormData {
   message: string;
 }
 
+interface FormErrors extends Partial<FormData> {
+  submit?: string;
+}
+
+// Move this to an environment variable
+const FORM_ENDPOINT = import.meta.env.VITE_FORM_ENDPOINT;
+
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     fullName: "",
@@ -14,8 +21,10 @@ const ContactForm: React.FC = () => {
     message: "",
   });
 
-  const [errors, setErrors] = useState<Partial<FormData>>({});
+  const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [lastSubmission, setLastSubmission] = useState<Date | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     if (isSubmitted) setIsSubmitted(false);
@@ -45,18 +54,53 @@ const ContactForm: React.FC = () => {
     return Object.keys(tempErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Rate limiting
+    if (lastSubmission && Date.now() - lastSubmission.getTime() < 60000) {
+      setErrors({ submit: 'Please wait a minute before submitting again.' });
+      return;
+    }
+    
     if (validate()) {
-      setIsSubmitted(true);
-      setFormData({ fullName: "", email: "", message: "" });
-      setErrors({});
+      setLastSubmission(new Date());
+      try {
+        // Show loading state
+        setIsLoading(true);
+        
+        // Submit form data
+        const response = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          body: new FormData(e.target as HTMLFormElement),
+        });
+        
+        if (!response.ok) throw new Error('Submission failed');
+        
+        // Show success state
+        setIsSubmitted(true);
+        setFormData({ fullName: "", email: "", message: "" });
+        setErrors({});
+      } catch (error) {
+        setErrors({ ...errors, submit: 'Failed to send message. Please try again.' });
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
+  useEffect(() => {
+    return () => {
+      // Cleanup on unmount
+      setFormData({ fullName: "", email: "", message: "" });
+      setErrors({});
+      setIsSubmitted(false);
+    };
+  }, []);
+
   return (
-    <section className="get-in-touch-container" id="Connect">
-      <h1 className="get-in-touch-header">Get in Touch</h1>
+    <section className="get-in-touch-container" id="Connect" aria-labelledby="contact-heading">
+      <h1 className="get-in-touch-header" id="contact-heading">Get in Touch</h1>
       <p className="get-in-touch-text">We'd love to hear from you and keep you updated with the latest!</p>
 
       <div className="form-container">
@@ -66,7 +110,7 @@ const ContactForm: React.FC = () => {
           </div>
         ) : (
           <form
-            action="https://formsubmit.co/londa@londalundstrom.com"  // FormSubmit email endpoint
+            action={FORM_ENDPOINT}
             method="POST"
             onSubmit={handleSubmit}
             noValidate
@@ -84,8 +128,11 @@ const ContactForm: React.FC = () => {
                 onChange={handleChange}
                 className={errors.fullName ? "error-input" : ""}
                 required
+                aria-label="Full Name"
+                aria-invalid={!!errors.fullName}
+                aria-describedby={errors.fullName ? "fullName-error" : undefined}
               />
-              {errors.fullName && <span className="error-message">{errors.fullName}</span>}
+              {errors.fullName && <span className="error-message" id="fullName-error" role="alert">{errors.fullName}</span>}
             </div>
 
             <div className="form-group">
@@ -116,7 +163,13 @@ const ContactForm: React.FC = () => {
             </div>
 
             <div className="button-container">
-              <button className="message-btn" type="submit">SEND MESSAGE</button>
+              <button 
+                className="message-btn" 
+                type="submit" 
+                disabled={isLoading}
+              >
+                {isLoading ? 'SENDING...' : 'SEND MESSAGE'}
+              </button>
             </div>
           </form>
         )}

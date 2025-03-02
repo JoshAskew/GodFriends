@@ -3,6 +3,7 @@ import '../styles/index.css';
 import HamburgerOpen from '../assets/OpenHamburger.png'; 
 import Close from '../assets/close.png';
 
+
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 

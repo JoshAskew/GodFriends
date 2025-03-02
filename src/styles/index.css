@@ -84,7 +84,12 @@ body {
     justify-content: space-between;
     width: 100%;
     background: white;
-    border-bottom: 1px solid #D1E0E3;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.nav-container.scrolled {
+    border-bottom: none;
+    box-shadow: 0px 3px 8px 0px rgba(88, 86, 87, 0.08)
 }
 
 .nav-title {
@@ -94,7 +99,7 @@ body {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-left: 20px;
+    padding-left: 40px;
 }
 
 .nav-list {
@@ -102,6 +107,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding-right: 40px;
 }
 
 .nav-link {
@@ -138,8 +144,9 @@ li {
 }
 
 .explore-img {
-    width: 656px;
-    height: 652px;
+    max-width: 100%; /* Ensures it never overflows */
+    width: 50vw; /* Scales relative to viewport width */
+    height: auto; /* Maintains aspect ratio */
     flex-shrink: 0;
 }
 
@@ -192,30 +199,26 @@ li {
 }
 
 .embrace-list{
-    flex: 0.8;
-}
-
-.author-container {
+    flex: 1;
     display: flex;
-    margin-left: 24px;
-    margin-right: 24px;
-    padding: 100px 8px;
     flex-direction: column;
-    width: 90%;
+    justify-content: center;
 }
 
-.embrace-list-container,
-.author-list-container {
+.embrace-list-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    gap: 40px;
 }
 
 .embrace-flower {
-    max-width: 100%;
-    height: 700px;
-    display: flex;
-    margin: auto;
+    max-width: 100%; /* Ensures it never overflows */
+    width: 30vw; /* Scales relative to viewport width */
+    height: auto; /* Maintains aspect ratio */
+    flex-shrink: 0;
+    margin-right: 40px;
 }
 
 .embrace-header {
@@ -226,17 +229,6 @@ li {
     font-style: normal;
     font-weight: 700;
     line-height: 56px;
-}
-
-.author-header {
-    color: #585657;
-    text-align: center;
-    font-family: "Noto Serif";
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 56px;
-    margin-bottom: 48px;
 }
 
 .embrace-text {
@@ -292,10 +284,36 @@ li {
     margin-bottom: 32px;
 }
 
+.author-container {
+    display: flex;
+    margin-left: 24px;
+    margin-right: 24px;
+    padding: 100px 8px;
+    flex-direction: column;
+    width: 90%;
+}
+
+.author-list-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.author-header {
+    color: #585657;
+    text-align: center;
+    font-family: "Noto Serif";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 56px;
+    margin-bottom: 48px;
+}
 
 .author-p {
     color: #231F20;
-    width: 89%;
+    width: 100%;
     font-family: "Source Sans 3";
     font-size: 16px;
     font-style: normal;
@@ -306,15 +324,15 @@ li {
 }
 
 .author-pic {
+    width: 35%;
+    height: auto;
     margin-left: 11%;
-    width: 465px;
-    height: 353px;
 }
 
 .rating-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding-top: 100px;
     padding-bottom: 100px;
@@ -331,7 +349,7 @@ li {
     align-items: center;
     justify-content: center;
     width: 30%;
-    margin-left: 10%;
+    margin-right: 6%;
 }
 
 .rating-two {
@@ -340,12 +358,7 @@ li {
     align-items: center;
     justify-content: center;
     width: 30%;
-    margin-right: 10%
-}
-
-.rating-author {
-    margin: 0;
-    text-align: center;
+    margin-left: 6%
 }
 
 .star-img {
@@ -606,6 +619,7 @@ textarea:focus {
     line-height: 24px;
     letter-spacing: 1.4px;
     text-transform: uppercase;
+    margin-left: 10px;
 }
 
 .buy-btn2 {
@@ -631,7 +645,7 @@ textarea:focus {
     background: #B54232;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 930px) {
 
     .nav-container {
         width: 100%;
@@ -801,12 +815,7 @@ textarea:focus {
     }
 
     .embrace-flower {
-        display: flex;
-        padding: 12px 0px;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        align-self: stretch;
+        display: none;
     }
 
     .author-container {

@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/index.css';
 import HamburgerOpen from '../assets/OpenHamburger.png';
 import Close from '../assets/close.png';
 
-
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [hasScrolled, setHasScrolled] = useState(false);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -19,8 +19,21 @@ const Navbar = () => {
         }
     };
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setHasScrolled(true);
+            } else {
+                setHasScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-        <nav className="nav-container">
+        <nav className={`nav-container ${hasScrolled ? 'scrolled' : ''}`}>
             <h1 className="nav-title">God Friends</h1>
 
             {/* Hamburger Icon for Mobile */}

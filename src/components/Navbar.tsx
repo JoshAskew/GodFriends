@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../styles/index.css';
-import HamburgerOpen from '../assets/OpenHamburger.png'; 
+import HamburgerOpen from '../assets/OpenHamburger.png';
 import Close from '../assets/close.png';
 
 
@@ -25,10 +25,10 @@ const Navbar = () => {
 
             {/* Hamburger Icon for Mobile */}
             <div className="hamburger" onClick={toggleMenu}>
-            <img 
-                    src={isOpen ? Close : HamburgerOpen} 
-                    alt={isOpen ? "Close Menu" : "Open Menu"} 
-                    className="hamburger-icon" 
+                <img
+                    src={isOpen ? Close : HamburgerOpen}
+                    alt={isOpen ? "Close Menu" : "Open Menu"}
+                    className="hamburger-icon"
                 />
             </div>
 
@@ -55,7 +55,14 @@ const Navbar = () => {
                     </span>
                 </li>
                 <li>
-                    <button className="buy-btn">Buy Now</button>
+                    <a
+                        href="https://www.londalundstrom.com/shop/p/god-friends"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="buy-btn"
+                    >
+                        Buy Now
+                    </a>
                 </li>
             </ul>
         </nav>

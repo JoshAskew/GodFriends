@@ -167,7 +167,7 @@ li {
     font-size: 26px;
     font-style: normal;
     font-weight: 500;
-    line-height: 24px;
+    line-height: 32px;
     margin-bottom: 32px;
 }
 
@@ -191,6 +191,10 @@ li {
     background: #FBFCFB;
 }
 
+.embrace-list{
+    flex: 0.8;
+}
+
 .author-container {
     display: flex;
     margin-left: 24px;
@@ -208,8 +212,10 @@ li {
 }
 
 .embrace-flower {
+    max-width: 100%;
+    height: 700px;
     display: flex;
-    margin: 0 auto;
+    margin: auto;
 }
 
 .embrace-header {
@@ -289,7 +295,7 @@ li {
 
 .author-p {
     color: #231F20;
-    width: 80%;
+    width: 89%;
     font-family: "Source Sans 3";
     font-size: 16px;
     font-style: normal;
@@ -386,6 +392,7 @@ li {
 
 .final-cta-header {
     color: #585657;
+    text-align: start;
     font-family: "Noto Serif";
     font-size: 36px;
     font-style: normal;
@@ -720,7 +727,7 @@ textarea:focus {
         font-size: 18px;
         font-style: normal;
         font-weight: 500;
-        line-height: 24px;
+        line-height: 32px;
     }
 
     .explore-p {
@@ -883,6 +890,7 @@ textarea:focus {
 
     .final-cta-header {
         color: #585657;
+        text-align: start;
         font-family: "Noto Serif";
         font-size: 22px;
         font-style: normal;

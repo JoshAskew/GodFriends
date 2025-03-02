@@ -8,9 +8,9 @@ const Embrace = () => {
                 <div className="author-list-container">
                     <img src={Authors} alt="Authors" className="author-pic" />
                     <section className="author-list">
-                        <p className="author-p">Londa Lundstrom and Sandy Scipioni bring a unique blend of expertise and heartfelt passion to "God Friends: How to Be One and How to Find One." Londa, with decades of experience in ministry, specializes in building spiritual communities and nurturing deep, faith-based relationships. Her practical insights and personal stories enrich the book's guidance on fostering divine friendships.
+                        <p className="author-p">Londa Lundstrom is an evangelist, pastor, disciple maker, speaker, author, worship leader, teacher, motivator, songwriter, award-winning composer, and producer. As the oldest of Lowell and Connie Lundstrom’s four children, she spent over 300 days a year traveling nationwide with her family's ministry from a young age. Londa has led numerous events and evangelistic meetings globally, inspiring tens of thousands of people to commit their lives to Jesus Christ. Her life mission is to train and empower individuals to overcome all obstacles and fulfill their God-given assignments.
                             <br /> <br />
-                            Sandy complements this with her background in counseling and spiritual practices, offering practical advice that is both accessible and inspiring. Together, they provide a comprehensive manual on cultivating profound spiritual connections, making "God Friends" an essential resource for anyone looking to deepen their relational and spiritual life. Join them to explore how these divine friendships can transform your everyday experiences.</p>
+                            Sandy Scipioni loves children and has spent her career in education. She has written, directed and acted in a variety of dramatic endeavors. At church you will find her on the prayer team. At home you’ll find her in her favorite role as, “Grandma Sandy.”</p>
                     </section>
                 </div>
             </section>

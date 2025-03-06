@@ -1,54 +1,147 @@
-# React + TypeScript + Vite
+# God Friends Web Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+God Friends is a beautifully designed and responsive web page that highlights the book **"God Friends"** by Londa Lundstrom and Sandy Scipioni. This project marks my first **live** development launch, where I worked closely with a designer to achieve a **pixel-perfect** implementation using **Figma**.
 
-Currently, two official plugins are available:
+## 🚀 Live Website
+[GodFriends](https://godfriends.life/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Features
+- **Responsive Design**: The layout adapts seamlessly to different screen sizes.
+- **Pixel-Perfect Implementation**: Developed closely following a **Figma** design.
+- **Meet the Authors Section**: Showcasing Londa and Sandy with biographies.
+- **Ratings & Reviews**: Displaying testimonials from readers.
+- **Optimized Performance**: Ensuring fast loading and smooth interactions.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
+- **Frontend**: React, TypeScript
+- **Styling**: CSS
+- **Design Collaboration**: Figma
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 📖 Lessons Learned
+- **Working with a Designer**: Ensuring accuracy between design and development.
+- **Responsive Development**: Handling different screen sizes and layouts.
+- **Performance Optimization**: Ensuring fast and smooth UI.
+- **Deploying a Live Project**: Managing assets, hosting, and optimizations.
 
-- Configure the top-level `parserOptions` property like this:
+## 📷 Screenshots
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 🎨 Figma Designs
+---
+![High-Fi Design](src/assets/GodFriendsFigma1.png)
+
+---
+![Wireframe](src/assets/GodFriendsFigma2.png)
+
+---
+
+### 🌐 Web Layout
+---
+![Web Layout 1](src/assets/GodFriends1.png)
+
+---
+![Web Layout 2](src/assets/GodFriends2.png)
+
+---
+![Web Layout 3](src/assets/GodFriends3.png)
+
+---
+![Web Layout 4](src/assets/GodFriends4.png)
+
+---
+
+![Web Layout 5](src/assets/GodFriends5.png)
+
+---
+
+### 📲 Mobile Layout
+---
+![Mobile1](src/assets/GodFriendsMobile1.png)
+
+---
+
+![Mobile2](src/assets/GodFriendsMobile2.png)
+
+---
+
+![Mobile3](src/assets/GodFriendsMobile3.png)
+
+---
+
+![Mobile4](src/assets/GodFriendsMobile4.png)
+
+---
+
+![Mobile5](src/assets/GodFriendsMobile5.png)
+
+---
+
+![Mobile6](src/assets/GodFriendsMobile6.png)
+
+---
+
+![Mobile7](src/assets/GodFriendsMobile7.png)
+
+---
+
+## 📂 Project Structure
+```
+├── public
+│   ├── book-alt-img.png
+│   └── flower-god-friends.png
+├── src
+│   ├── App.tsx
+│   ├── assets
+│   │   ├── Author-god-friends.png
+│   │   ├── Facebook.png
+│   │   ├── OpenHamburger.png
+│   │   ├── Stars.png
+│   │   ├── book-alt-img.png
+│   │   ├── book-hero-image.png
+│   │   ├── close.png
+│   │   ├── flower-god-friends.png
+│   │   └── success.png
+│   ├── components
+│   │   ├── Authors.tsx
+│   │   ├── ContactForm.tsx
+│   │   ├── Embrace.tsx
+│   │   ├── Explore.tsx
+│   │   ├── FinalCTA.tsx
+│   │   ├── Footer.tsx
+│   │   ├── LottieAnimation.tsx
+│   │   ├── Navbar.tsx
+│   │   └── Rating.tsx
+│   ├── main.tsx
+│   ├── styles
+│   │   └── index.css
+│   └── vite-env.d.ts
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 📌 How to Run Locally
+1. Clone the repository:
+   ```sh
+   git clone [repo-link]
+   ```
+2. Navigate into the project directory:
+   ```sh
+   cd god-friends
+   ```
+3. Install dependencies:
+   ```sh
+   npm install
+   ```
+4. Start the development server:
+   ```sh
+   npm run dev
+   ```
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
-
-
-
-Recovery: D7ST4AE6Q3EMBRLQYL2HJ4VN
+## 🎉 Acknowledgments
+- Special thanks to **Londa Lundstrom** and **Sandy Scipioni** for the opportunity to work on this amazing project! <br>
+- A special thanks to **Braylon Medvec** for his clean and professional design, along with showing me the ropes of Figma!
+---
+🔗 <br>
+ **Follow my journey** on [LinkedIn](https://www.linkedin.com/in/joshua-askew-0293bb338/) and stay tuned for more projects! <br>
+**Follow me on:** [GitHub](https://github.com/JoshAskew)

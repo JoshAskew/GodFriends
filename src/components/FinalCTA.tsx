@@ -8,7 +8,7 @@ const Final = () => {
         <h2 className="final-cta-header">God Friends: How to Be One and How to Find One</h2>
         <p className="explore-p">Londa Lundstrom and Sandy Scipioni artfully blend enlightening anecdotes with practical advice. This compelling read invites you to explore the profound impact of spiritual friendships, offering a roadmap to forge connections that enrich, inspire, and deepen your spiritual journey.</p>
         <div className='price-container'>
-          <p className='price'>$19.99</p>
+          <p className='price'>$20.00</p>
           <a
             href="https://www.londalundstrom.com/shop/p/god-friends"
             target="_blank"
